@@ -1,6 +1,7 @@
 import random
 import time
 
+
 from requests.exceptions import SSLError
 
 from py12306.config import Config
@@ -60,6 +61,7 @@ class AuthCode:
             time.sleep(self.retry_time)
             return self.download_code()
 
+
     def check_code(self, answer):
         """
         校验验证码
@@ -67,7 +69,15 @@ class AuthCode:
         """
         url = API_AUTH_CODE_CHECK.get('url').format(answer=answer, random=time_int())
         response = self.session.get(url)
-        result = response.json()
+
+        rescont=response.text
+        if '\xef\xbb\xbf' in rescont:
+            rescont = rescont.replace('\xef\xbb\xbf','')
+        result = json.loads(rescont)
+
+
+
+        #result = response.json()
         if result.get('result_code') == '4':
             UserLog.add_quick_log(UserLog.MESSAGE_CODE_AUTH_SUCCESS).flush()
             return True

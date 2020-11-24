@@ -3,7 +3,7 @@ import json
 from datetime import timedelta
 from os import path
 
-from py12306.cluster.cluster import Cluster
+import py12306.cluster.cluster
 from py12306.config import Config
 from py12306.app import app_available_check
 from py12306.helpers.api import API_CHECK_CDN_AVAILABLE, HOST_URL_OF_12306
@@ -39,7 +39,7 @@ class Cdn:
     check_keep_second = 60 * 60 * 24
 
     def __init__(self):
-        self.cluster = Cluster()
+        self.cluster = py12306.cluster.cluster.Cluster()
         self.init_config()
         create_thread_and_run(self, 'watch_cdn', False)
 

@@ -1,11 +1,7 @@
-import json
-import os
 import pickle
-import sys
-import time
 
-import redis
 from redis.client import PubSub
+
 
 from py12306.cluster.redis import Redis
 from py12306.config import Config

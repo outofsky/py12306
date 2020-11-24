@@ -24,8 +24,8 @@ class Config:
     AUTO_CODE_PLATFORM = ''
     AUTO_CODE_ACCOUNT = {'user': '', 'pwd': ''}
     # 输出日志到文件
-    OUT_PUT_LOG_TO_FILE_ENABLED = 0
-    OUT_PUT_LOG_TO_FILE_PATH = 'runtime/12306.log'
+    OUT_PUT_LOG_TO_FILE_ENABLED = 1
+    OUT_PUT_LOG_TO_FILE_PATH = 'd:\\projects\\py12306\\runtime\\12306.log'
 
     SEAT_TYPES = {'特等座': 25, '商务座': 32, '一等座': 31, '二等座': 30, '软卧': 23, '硬卧': 28, '硬座': 29, '无座': 26, }
 

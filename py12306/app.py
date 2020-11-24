@@ -50,6 +50,7 @@ class App:
         #     from py12306.cluster.cluster import Cluster
         #     Cluster().run()
 
+
     def init_class(self):
         from py12306.cluster.cluster import Cluster
         if Config.is_cluster_enabled():

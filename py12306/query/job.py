@@ -247,6 +247,7 @@ class Job:
         else:
             self.interval_additional = 0
         result = response.json().get('data.result')
+
         return result if result else False
 
     def is_has_ticket(self, ticket_info):
